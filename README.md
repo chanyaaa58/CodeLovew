@@ -57,7 +57,7 @@ https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=1096734834
 
 ## ER図
-<img width="834" alt="スクリーンショット 2021-10-06 18 00 05" src="https://user-images.githubusercontent.com/86763220/136173968-19f35640-b943-4952-8819-0f69afe6919f.png">
+![original_app_erd drawio](https://user-images.githubusercontent.com/86763220/136192544-adb5f8b9-1dc9-4f17-9890-40a363f84281.png)
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=72546783
 
