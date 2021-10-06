@@ -57,6 +57,7 @@ https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=1096734834
 
 ## ER図
+<img width="1407" alt="スクリーンショット 2021-10-06 17 58 29" src="https://user-images.githubusercontent.com/86763220/136173160-58998069-8dec-49b3-95a5-5d8b2637b6cf.png">
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=72546783
 
