@@ -10,6 +10,17 @@
   </head>
 
   <body>
+    <% if user_signed_in? %>
+      <%= link_to "ALL Reviews", blogs_path %>
+      <%= link_to "Review!", new_blog_path %>
+      <%= link_to "Mypage", blogs_path %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+    <% else %>
+      <%= link_to "Log In", new_user_session_path %>
+      <%= link_to "Sign Up", new_user_registration_path %>
+      <%= link_to "Guest Log In", new_user_session_path %>
+      <%= link_to "Admin Guest Log In", new_user_session_path %>
+    <% end %>
     <%= yield %>
   </body>
 </html>
