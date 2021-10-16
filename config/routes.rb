@@ -6,7 +6,7 @@ Rails.application.routes.draw do
     sessions: 'users/sessions'
   }
   resources :tops
-  resources :users
+  resources :users, only: [:show]
   resources :reviews
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?
 end
