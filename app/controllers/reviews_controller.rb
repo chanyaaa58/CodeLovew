@@ -8,6 +8,8 @@ class ReviewsController < ApplicationController
 
   # GET /reviews/1 or /reviews/1.json
   def show
+    @comments = @review.comments
+    @comment = @review.comments.build
   end
 
   # GET /reviews/new
