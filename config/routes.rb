@@ -5,7 +5,8 @@ Rails.application.routes.draw do
     registrations: 'users/registrations',
     sessions: 'users/sessions'
   }
-  resources :users
   resources :tops
+  resources :users
+  resources :reviews
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?
 end
