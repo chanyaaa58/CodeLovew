@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   }
   resources :tops
   resources :users, only: [:show]
-  resources :reviews
+  resources :reviews do
+    resources :comments
+  end
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?
 end

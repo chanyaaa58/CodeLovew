@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  has_many :comments, dependent: :destroy
+
   with_options presence: true do
     validates :name, length:{ in: 1..20 }
     validates :title, length:{ in: 1..100 }

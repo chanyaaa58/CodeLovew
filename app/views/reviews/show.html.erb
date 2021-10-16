@@ -1,32 +1,48 @@
-<p>
-  <strong>Name:</strong>
-  <%= @review.name %>
-</p>
+<div class="container">
+  <div class="review-text">
+  <p>
+    <strong>Name:</strong>
+    <%= @review.name %>
+  </p>
 
-<p>
-  <strong>Title:</strong>
-  <%= @review.title %>
-</p>
+  <p>
+    <strong>Title:</strong>
+    <%= @review.title %>
+  </p>
 
-<p>
-  <strong>Problem:</strong>
-  <%= @review.problem %>
-</p>
+  <p>
+    <strong>Problem:</strong>
+    <%= @review.problem %>
+  </p>
 
-<p>
-  <strong>Detail:</strong>
-  <%= @review.detail %>
-</p>
+  <p>
+    <strong>Detail:</strong>
+    <%= @review.detail %>
+  </p>
 
-<p>
-  <strong>Solution:</strong>
-  <%= @review.solution %>
-</p>
+  <p>
+    <strong>Solution:</strong>
+    <%= @review.solution %>
+  </p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @review.content %>
-</p>
+  <p>
+    <strong>Content:</strong>
+    <%= @review.content %>
+  </p>
+  </div>
+
+  <p>
+  <strong>Comments</strong>
+  </p>
+  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
+  <div id="comments_area">
+    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
+    <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
+  </div>
+  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
+  <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
+
+</div>
