@@ -11,8 +11,8 @@
 
   <body>
     <% if user_signed_in? %>
-      <%# <%= link_to "ALL Reviews", blogs_path %>
-      <%# <%= link_to "Review!", new_blog_path %>
+      <%= link_to "ALL Reviews", reviews_path %>
+      <%= link_to "Review!", new_review_path %>
       <%# <%= link_to "Mypage", user_path %>
       <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
     <% else %>
