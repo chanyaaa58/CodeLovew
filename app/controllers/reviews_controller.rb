@@ -1,9 +1,12 @@
 class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
+  # before_action :set_q, only: [:index, :search]
 
   # GET /reviews or /reviews.json
   def index
-    @reviews = Review.all
+    @q = Review.ransack(params[:q])
+    @reviews = @q.result(distinct: true)
+    # @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   # GET /reviews/1 or /reviews/1.json
@@ -58,7 +61,16 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def search
+    @search = Review.ransack(params[:q])
+    @results = @search.result.order("created_at DESC")
+  end
+
   private
+
+  # 　def set_q
+  #   　@q = Review.ransack(params[:q])
+  # 　end
     # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
