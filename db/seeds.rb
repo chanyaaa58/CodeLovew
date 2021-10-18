@@ -1,9 +1,55 @@
-reviews =  [
-      { name: '管理者1', title: 'test01', problem: 'test01', detail: 'test01', solution: 'test01', content: 'test01' },
-      { name: '管理者2', title: 'test02', problem: 'test02', detail: 'test02', solution: 'test02', content: 'test02' },
-      { name: '一般ユーザー1', title: 'test03', problem: 'test03', detail: 'test03', solution: 'test03', content: 'test03' },
-      { name: '一般ユーザー2', title: 'test04', problem: 'test04', detail: 'test04', solution: 'test04', content: 'test04' },
-      { name: '一般ユーザー3', title: 'test05', problem: 'test05', detail: 'test05', solution: 'test05', content: 'test05' }
-]
+# reviews =  [
+#       { name: '管理者1', title: 'test01', problem: 'test01', detail: 'test01', solution: 'test01', content: 'test01' },
+#       { name: '管理者2', title: 'test02', problem: 'test02', detail: 'test02', solution: 'test02', content: 'test02' },
+#       { name: '一般ユーザー1', title: 'test03', problem: 'test03', detail: 'test03', solution: 'test03', content: 'test03' },
+#       { name: '一般ユーザー2', title: 'test04', problem: 'test04', detail: 'test04', solution: 'test04', content: 'test04' },
+#       { name: '一般ユーザー3', title: 'test05', problem: 'test05', detail: 'test05', solution: 'test05', content: 'test05' }
+# ]
 
-Review.create(reviews)
+# Review.create(reviews)
+
+lavels = [
+      { name: 'HTML / CSS' },
+      { name: 'Javascript（Jquery）' },
+      { name: 'C' },
+      { name: 'C++' },
+      { name: 'C#' },
+      { name: 'PHP' },
+      { name: 'Laravel' },
+      { name: 'Ruby' },
+      { name: 'Ruby on Rails' },
+      { name: 'Java / Kotlin' },
+      { name: 'Swift / Objective-C' },
+      { name: 'Python' },
+      { name: 'Django / Flask' },
+      { name: 'Go（Golang）' },
+      { name: 'React' },
+      { name: '書籍' },
+      { name: 'youtube' },
+      { name: 'ドットインストール' },
+      { name: 'progate' },
+      { name: 'Udemy' },
+      { name: 'Techpit' },
+      { name: 'paiza' },
+      { name: 'Qiita' },
+      { name: 'zenn' },
+      { name: '【書籍】分厚い' },
+      { name: '【書籍】薄い' },
+      { name: '電子書籍あり' },
+      { name: '初学者向け' },
+      { name: '中上級' },
+      { name: '【書籍・サイト】解説動画あり' },
+      { name: '実務向け' },
+      { name: '【作者】現役エンジニア' },
+      { name: '【作者】スクール講師' },
+      { name: '【作者】スクールメンター' },
+      { name: '【動画】10分以内（倍速なし）' },
+      { name: '【動画】1時間未満（倍速なし）' },
+      { name: '【動画】1時間超え（倍速なし）' },
+      { name: '【動画】喋り：速い' },
+      { name: '【動画】喋り：ゆっくり' },
+      { name: '【動画】喋り：普通' },
+      { name: '【料金】無料' },
+      { name: '【料金】有料' }
+]
+Label.create(lavels)
