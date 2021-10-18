@@ -29,6 +29,13 @@
     <strong>Content:</strong>
     <%= @review.content %>
   </p>
+
+  <p>
+    <strong>Tags:</strong>
+    <% @review.labels.each do |label| %>
+      <%= label.name %>
+    <% end %>
+  </p>
   </div>
 
   <p>

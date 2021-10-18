@@ -3,7 +3,7 @@
   <h1>Search Zone</h1>
   <%# <%= form.label :name, 'タグ検索' %>
   <%# <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
-  <%# 　<%= form.submit 'Search' %>
+  <%# <%= form.submit 'Search', name: nil %>
   <%# <% end %>
   <%= search_form_for @q, url: search_reviews_path do |form| %>
     <%= form.label :name_or_title_or_problem_or_detail_or_solution_or_content_cont, '入力検索' %>
@@ -37,9 +37,9 @@
           <td><%= review.solution %></td>
           <td><%= review.content %></td>
           <td>
-            <%# <% review.labels.each do |label| %>
-              <%# <%= label.name %>
-            <%# <% end %>
+            <% review.labels.each do |label| %>
+              <%= label.name %>
+            <% end %>
           </td>
           <td><%= link_to 'Read more', review %></td>
           <td><%= link_to 'Edit', edit_review_path(review) %></td>
@@ -48,6 +48,6 @@
       <% end %>
     </tbody>
   </table>
-<%end%> 
+<%end%>
 <br>
 <%= link_to 'New Review', new_review_path %>

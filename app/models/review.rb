@@ -1,4 +1,6 @@
 class Review < ApplicationRecord
+  has_many :labellings, dependent: :destroy
+  has_many :labels, through: :labellings
   has_many :comments, dependent: :destroy
 
   with_options presence: true do
