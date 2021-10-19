@@ -1,10 +1,13 @@
 class Review < ApplicationRecord
   belongs_to :user
+  has_many :lovews, dependent: :destroy
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
   has_many :comments, dependent: :destroy
-  has_many :lovews, dependent: :destroy
-  has_many :lovew_users, through: :lovews, source: :user
+
+  def lovewd_by?(user)
+    loviews.where(user_id: user.id).exists?
+  end
 
   with_options presence: true do
     validates :name, length:{ in: 1..20 }

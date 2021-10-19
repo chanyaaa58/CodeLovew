@@ -16,13 +16,12 @@ Rails.application.routes.draw do
   resources :users, only: [:show]
 
   resources :reviews do
+    resource :lovews, only: [:create, :destroy]
     resources :comments
     collection do
       get 'search'
     end
   end
-
-  resources :lovews, only: [:create, :destroy]
 
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?
 end
