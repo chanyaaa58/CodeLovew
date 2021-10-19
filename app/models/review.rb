@@ -2,6 +2,8 @@ class Review < ApplicationRecord
   has_many :labellings, dependent: :destroy
   has_many :labels, through: :labellings
   has_many :comments, dependent: :destroy
+  has_many :lovews, dependent: :destroy
+  has_many :lovew_users, through: :lovews, source: :user
 
   with_options presence: true do
     validates :name, length:{ in: 1..20 }
