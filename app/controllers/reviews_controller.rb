@@ -13,7 +13,7 @@ class ReviewsController < ApplicationController
   def show
     @comments = @review.comments
     @comment = @review.comments.build
-    # @lovew = current_user.lovews.find_by(review_id: @review.id)
+    @lovew = current_user.lovews.find_by(review_id: @review.id)
   end
 
   # GET /reviews/new
@@ -27,7 +27,8 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    # @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
 
     respond_to do |format|
       if @review.save

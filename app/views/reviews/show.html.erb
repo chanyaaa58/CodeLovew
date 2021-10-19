@@ -49,6 +49,14 @@
   <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
+<% unless @review.user_id == current_user.id %>
+  <% if @review.present? %>
+    <%= link_to 'Delete', lovews_path(id: @lovew.id), method: :delete, class: 'btn btn-danger' %>
+  <% else %>
+    <%= link_to 'Lovew!', lovews_path(review_id: @review.id), method: :post, class: 'btn btn-primary' %>
+  <% end %>
+<% end %>
+
 <%= link_to 'Edit', edit_review_path(@review) %> |
 <%= link_to 'Back', reviews_path %>
 
