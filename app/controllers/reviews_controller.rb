@@ -6,7 +6,7 @@ class ReviewsController < ApplicationController
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true)
-    # @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
+    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
   end
 
   # GET /reviews/1 or /reviews/1.json
