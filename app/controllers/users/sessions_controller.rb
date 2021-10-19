@@ -9,6 +9,12 @@ class Users::SessionsController < Devise::SessionsController
     redirect_to reviews_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
+  def guest_admin_sign_in
+    user = User.admin_guest
+    sign_in user
+    redirect_to rails_admin_path, notice: '管理者ゲストユーザーとしてログインしました。'
+  end
+
   # GET /resource/sign_in
   # def new
   #   super
