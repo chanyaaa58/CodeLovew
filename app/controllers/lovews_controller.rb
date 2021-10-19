@@ -1,0 +1,2 @@
+class LovewsController < ApplicationController
+end
