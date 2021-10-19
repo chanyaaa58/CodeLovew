@@ -22,5 +22,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :lovews, only: [:create, :destroy]
+
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?
 end

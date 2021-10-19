@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
   def show
     @comments = @review.comments
     @comment = @review.comments.build
+    # @lovew = current_user.lovews.find_by(review_id: @review.id)
   end
 
   # GET /reviews/new
