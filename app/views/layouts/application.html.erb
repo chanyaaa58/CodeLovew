@@ -15,6 +15,9 @@
       <%= link_to "Review!", new_review_path %>
       <%= link_to "My page", user_path(current_user.id) %>
       <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
+      <% if current_user.admin? %>
+        <%= link_to "管理画面", rails_admin_path %>
+      <% end %>
     <% else %>
       <%= link_to "Log In", new_user_session_path %>
       <%= link_to "Sign Up", new_user_registration_path %>
