@@ -1,12 +1,12 @@
-# reviews =  [
-#       { name: '管理者1', title: 'test01', problem: 'test01', detail: 'test01', solution: 'test01', content: 'test01' },
-#       { name: '管理者2', title: 'test02', problem: 'test02', detail: 'test02', solution: 'test02', content: 'test02' },
-#       { name: '一般ユーザー1', title: 'test03', problem: 'test03', detail: 'test03', solution: 'test03', content: 'test03' },
-#       { name: '一般ユーザー2', title: 'test04', problem: 'test04', detail: 'test04', solution: 'test04', content: 'test04' },
-#       { name: '一般ユーザー3', title: 'test05', problem: 'test05', detail: 'test05', solution: 'test05', content: 'test05' }
-# ]
+user = User.create(name: "seed_user1", email: "seed1@seed.com", admin: true, password: "password01")
+user = User.create(name: "seed_user2", email: "seed2@seed.com", admin: true, password: "password02")
+user = User.create(name: "seed_user3", email: "seed3@seed.com", admin: false, password: "password03")
+user = User.create(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
+user = User.create(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
 
-# Review.create(reviews)
+5.times { |n|
+  Review.create(name: "basic_user#{n}", title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user.id )
+}
 
 lavels = [
       { name: 'HTML / CSS' },
