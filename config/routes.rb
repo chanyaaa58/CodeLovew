@@ -13,13 +13,18 @@ Rails.application.routes.draw do
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_admin_sign_in'
   end
 
-  resources :users, only: [:show]
+  resources :users do
+    member do
+      post :confirm
+    end
+  end
 
   resources :reviews do
+    resource :lovews, only: [:create, :destroy]
     resources :comments
-    collection do
-      get 'search'
-    end
+      collection do
+        get 'search'
+      end
   end
 
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?

@@ -3,6 +3,8 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @reviews = @user.reviews
+    @lovew_reviews = @user.lovew_reviews
   end
 
   private

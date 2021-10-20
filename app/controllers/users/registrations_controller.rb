@@ -11,6 +11,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
 
+  def confirm
+    @user = User.find(params[:id])
+  end
+
   # GET /resource/sign_up
   # def new
   #   super

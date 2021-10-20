@@ -3,7 +3,10 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-  mount_uploader :icon, IconUploader
+
+  has_many :reviews, dependent: :destroy
+  has_many :lovews, dependent: :destroy
+  has_many :lovew_reviews, through: :lovews, source: :review
 
   def self.guest
     find_or_create_by!(name: 'Guest', email: 'guest@example.com') do |user|
@@ -16,4 +19,6 @@ class User < ApplicationRecord
       user.password = SecureRandom.alphanumeric()
     end
   end
+
+  mount_uploader :icon, IconUploader
 end

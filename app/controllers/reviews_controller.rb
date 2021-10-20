@@ -1,4 +1,5 @@
 class ReviewsController < ApplicationController
+  before_action :authenticate_user!, except: [:index]
   before_action :set_review, only: %i[ show edit update destroy ]
   # before_action :set_q, only: [:index, :search]
 
@@ -13,6 +14,7 @@ class ReviewsController < ApplicationController
   def show
     @comments = @review.comments
     @comment = @review.comments.build
+    @lovew = current_user.lovews.find_by(review_id: @review.id)
   end
 
   # GET /reviews/new
@@ -26,7 +28,9 @@ class ReviewsController < ApplicationController
 
   # POST /reviews or /reviews.json
   def create
-    @review = Review.new(review_params)
+    # @review = Review.new(review_params)
+    @review = current_user.reviews.build(review_params)
+    @review.user_id = current_user.id
 
     respond_to do |format|
       if @review.save
