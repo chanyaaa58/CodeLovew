@@ -74,10 +74,6 @@ class ReviewsController < ApplicationController
 
   private
 
-  # 　def set_q
-  #   　@q = Review.ransack(params[:q])
-  # 　end
-    # Use callbacks to share common setup or constraints between actions.
     def set_review
       @review = Review.find(params[:id])
     end
