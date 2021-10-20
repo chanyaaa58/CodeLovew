@@ -12,6 +12,8 @@
 </p>
 
 <p><%= link_to 'Edit', edit_user_registration_path(@user.id) %></p>
+<p><%= link_to 'Delete', confirm_user_path(@user.id), method: :post %></p>
+
 
 <br>
 <h1>Lovews</h1>
