@@ -1,8 +1,4 @@
 class LovewsController < ApplicationController
-  # def index
-  #   @lovew = Lovew.all
-  # end
-
   def create
     lovew = current_user.lovews.build(review_id: params[:review_id])
     lovew.save

@@ -6,7 +6,7 @@ class Review < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   def lovewd_by?(user)
-    loviews.where(user_id: user.id).exists?
+    lovews.where(user_id: user.id).exists?
   end
 
   with_options presence: true do

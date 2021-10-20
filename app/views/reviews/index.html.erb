@@ -31,7 +31,7 @@
   <tbody>
     <% @reviews.each do |review| %>
       <tr>
-        <td><%= review.name %></td>
+        <td><%= review.user.name %></td>
         <td><%= review.title %></td>
         <td><%= review.problem %></td>
         <td><%= review.detail %></td>
@@ -45,16 +45,17 @@
         <td><%= link_to 'Read more', review %></td>
         <td><%= link_to 'Edit', edit_review_path(review) %></td>
         <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+        <% if user_signed_in? %>
+          <% if review.lovewd_by?(current_user) %>
+            <td><span>お気に入り解除: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :delete %></td>
+          <% else %>
+            <td><span>お気に入り登録: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :post %></>
+          <% end %>
+        <% end %>
       </tr>
     <% end %>
 
-    <% if user_signed_in? %>
-      <% if @reviews.lovewd_by?(current_user) %> <!-- ログインしているユーザーがお気に入りしたかどうかで分岐 -->
-        <p><span>お気に入り解除: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :delete %></p>
-      <% else %>
-        <p><span>お気に入り登録: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :post %></p>
-      <% end %>
-    <% end %>
 
   </tbody>
 </table>
