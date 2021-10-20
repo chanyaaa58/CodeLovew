@@ -5,6 +5,7 @@ class ReviewsController < ApplicationController
 
   # GET /reviews or /reviews.json
   def index
+    # @reviews = @reviews.page(params[:page])
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true)
     @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }) if params[:label_id].present?
@@ -67,6 +68,7 @@ class ReviewsController < ApplicationController
 
   def search
     @search = Review.ransack(params[:q])
+    # @reviews = @reviews.page(params[:page])
     @results = @search.result.order("created_at DESC")
   end
 

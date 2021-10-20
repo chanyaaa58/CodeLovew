@@ -4,7 +4,7 @@ user = User.create(name: "seed_user3", email: "seed3@seed.com", admin: false, pa
 user = User.create(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
 user = User.create(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
 
-5.times { |n|
+30.times { |n|
   Review.create(name: "basic_user#{n}", title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user.id )
 }
 
