@@ -47,7 +47,9 @@
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
+<% if user_signed_in? && current_user.id == @review.user_id %>
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+<% end %>
 <%= link_to 'Back', reviews_path %>
 
 </div>
