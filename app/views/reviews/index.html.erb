@@ -45,7 +45,7 @@
         <td><%= link_to 'Read more', review %></td>
         <% if user_signed_in? && current_user.id == review.user_id %>
           <td><%= link_to 'Edit', edit_review_path(review) %></td>
-          <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %></td>
+          <td><%= link_to 'Delete', review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %></td>
         <% end %>
 
         <% if user_signed_in? %>
