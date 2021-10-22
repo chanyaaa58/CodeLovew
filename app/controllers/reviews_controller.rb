@@ -41,7 +41,7 @@ class ReviewsController < ApplicationController
   def update
     respond_to do |format|
       if @review.update(review_params)
-        format.html { redirect_to @review, notice: "レビューを更新しました。" }
+        format.html { redirect_to @review, notice: "投稿を更新しました。" }
         format.json { render :show, status: :ok, location: @review }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -53,7 +53,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     respond_to do |format|
-      format.html { redirect_to reviews_url, notice: "レビューを削除しました。" }
+      format.html { redirect_to reviews_url, notice: "投稿を削除しました。" }
       format.json { head :no_content }
     end
   end
