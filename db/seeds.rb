@@ -1,11 +1,11 @@
-user = User.create(name: "seed_user1", email: "seed1@seed.com", admin: true, password: "password01")
-user = User.create(name: "seed_user2", email: "seed2@seed.com", admin: true, password: "password02")
-user = User.create(name: "seed_user3", email: "seed3@seed.com", admin: false, password: "password03")
-user = User.create(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
-user = User.create(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
+user = User.create!(name: "seed_user1", email: "seed1@seed.com", admin: true, password: "password01")
+user = User.create!(name: "seed_user2", email: "seed2@seed.com", admin: true, password: "password02")
+user = User.create!(name: "seed_user3", email: "seed3@seed.com", admin: false, password: "password03")
+user = User.create!(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
+user = User.create!(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
 
 30.times { |n|
-  Review.create(name: "basic_user#{n}", title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user.id )
+  Review.create!(name: "basic_user#{n}", title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user.id )
 }
 
 lavels = [
@@ -52,4 +52,10 @@ lavels = [
       { name: '【料金】無料' },
       { name: '【料金】有料' }
 ]
-Label.create(lavels)
+Label.create!(lavels)
+
+comment = Comment.create!(review_id: 1, content: "わかりやすい！")
+comment = Comment.create!(review_id: 1, content: "理解が深まりました！")
+comment = Comment.create!(review_id: 1, content: "「〜」について質問です！")
+comment = Comment.create!(review_id: 1, content: "すみません。よくわかりません…")
+comment = Comment.create!(review_id: 1, content: "ありがとうございます！")
