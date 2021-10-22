@@ -7,7 +7,7 @@ class ReviewsController < ApplicationController
     @reviews = @q.result(distinct: true)
     @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]) if params[:label_id].present?
     @reviews = Kaminari.paginate_array(@reviews).page(params[:page])
-    flash.now[:alert] = "あああああああああああああああ" if params[:cancel_quit]
+    flash.now[:alert] = "引き続きご利用いただき、ありがとうございます！！" if params[:cancel_quit]
   end
 
   def show
