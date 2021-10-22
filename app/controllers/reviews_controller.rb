@@ -3,7 +3,6 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
 
   def index
-    # binding.irb
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).order(created_at: :desc)
     @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).order(created_at: :desc) if params[:label_id].present?
