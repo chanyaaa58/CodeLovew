@@ -48,7 +48,6 @@ ActiveRecord::Schema.define(version: 2021_10_19_081347) do
   end
 
   create_table "reviews", force: :cascade do |t|
-    t.string "name", null: false
     t.string "title", null: false
     t.string "problem", null: false
     t.string "detail", null: false

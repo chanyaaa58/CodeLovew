@@ -10,11 +10,12 @@ class Review < ApplicationRecord
   end
 
   with_options presence: true do
-    # validates :name, length:{ in: 1..20 }
-    validates :title, length:{ in: 1..100 }
-    validates :problem, length:{ in: 1..3000 }
-    validates :detail, length:{ in: 1..3000 }
-    validates :content, length:{ in: 1..3000 }
+    validates :title, length:{ maximum: 100 }
+    with_options length: { maximum: 3000 } do
+      validates :problem
+      validates :detail
+      validates :content
+    end
   end
 
   validates :solution, length:{ maximum: 3000 }

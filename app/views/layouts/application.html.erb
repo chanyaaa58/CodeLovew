@@ -9,6 +9,12 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <header>
+    <div class="header-logo">
+      <a href="/">CodeLovew</a>
+    </div>
+  </header>
+
   <body>
     <% if user_signed_in? %>
       <%= link_to "ALL Reviews", reviews_path %>

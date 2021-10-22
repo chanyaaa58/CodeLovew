@@ -9,15 +9,12 @@ Rails.application.routes.draw do
   }
 
   devise_scope :user do
+    post 'users/confirm', to: 'users/registrations#confirm'
     post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
     post 'users/guest_admin_sign_in', to: 'users/sessions#guest_admin_sign_in'
   end
 
-  resources :users do
-    member do
-      post :confirm
-    end
-  end
+  resources :users
 
   resources :reviews do
     resource :lovews, only: [:create, :destroy]

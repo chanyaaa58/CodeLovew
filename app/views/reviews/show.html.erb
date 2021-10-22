@@ -1,9 +1,11 @@
+<h1>Review Detail</h1>
+
 <div class="container">
   <div class="review-text">
 
   <p>
     <strong>Name:</strong>
-    <%= @review.name %>
+    <%= @review.user.name %>
   </p>
 
   <p>
@@ -42,15 +44,14 @@
   <p>
   <strong>Comments</strong>
   </p>
-  <!-- このcomments_areaというHTMLのidを取得して、そのdivの部分だけを更新する -->
   <div id="comments_area">
-    <!-- 投稿されたコメント一覧をブログの詳細ページに表示するためのrender -->
     <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
   </div>
-  <!-- コメント入力欄をブログの詳細ページに表示するためのrender -->
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
-<%= link_to 'Edit', edit_review_path(@review) %> |
-<%= link_to 'Back', reviews_path %>
+<% if user_signed_in? && current_user.id == @review.user_id %>
+  <%= link_to 'Edit', edit_review_path(@review) %> |
+  <%= link_to 'Delete', @review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
+<% end %>
 
 </div>

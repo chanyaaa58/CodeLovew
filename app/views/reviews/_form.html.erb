@@ -11,14 +11,9 @@
     </div>
   <% end %>
 
-  <%# <div class="field"> %>
-    <%# <%= form.label :name %>
-    <%# <%= current_user.name %>
-  <%# </div> %>
-
   <div class="field">
     <%= form.label :name %>
-    <%= form.text_field :name %>
+    <%= current_user.name %>
   </div>
 
   <div class="field">
@@ -51,6 +46,6 @@
   </div>
 
   <div class="actions">
-    <%= form.submit %>
+    <input type="submit" value="Confirm!">
   </div>
 <% end %>
