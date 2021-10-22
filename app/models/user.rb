@@ -11,7 +11,6 @@ class User < ApplicationRecord
   with_options presence: true do
     validates :name, length: { maximum: 20 }
     validates :email, length: { maximum: 100 }
-    validates :password
   end
 
   def self.guest
