@@ -60,7 +60,7 @@ class ReviewsController < ApplicationController
 
   def search
     @search = Review.ransack(params[:q])
-    @results = @search.result.order("created_at DESC")
+    @results = @search.result
     @results = Kaminari.paginate_array(@results).page(params[:page])
   end
 
