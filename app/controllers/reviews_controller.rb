@@ -3,9 +3,10 @@ class ReviewsController < ApplicationController
   before_action :set_review, only: %i[ show edit update destroy ]
 
   def index
+    # binding.irb
     @q = Review.ransack(params[:q])
-    @reviews = @q.result(distinct: true)
-    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]) if params[:label_id].present?
+    @reviews = @q.result(distinct: true).order(created_at: :desc)
+    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).order(created_at: :desc) if params[:label_id].present?
     @reviews = Kaminari.paginate_array(@reviews).page(params[:page])
     flash.now[:alert] = "引き続きご利用いただき、ありがとうございます！！" if params[:cancel_quit]
   end
@@ -60,7 +61,7 @@ class ReviewsController < ApplicationController
 
   def search
     @search = Review.ransack(params[:q])
-    @results = @search.result
+    @results = @search.result.order(created_at: :desc)
     @results = Kaminari.paginate_array(@results).page(params[:page])
   end
 
@@ -71,6 +72,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:name, :title, :problem, :detail, :solution, :content, { label_ids: [] })
+      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })
     end
 end

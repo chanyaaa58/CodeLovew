@@ -10,7 +10,6 @@ class Review < ApplicationRecord
   end
 
   with_options presence: true do
-    # validates :name, length:{ maximum: 20 }
     validates :title, length:{ maximum: 100 }
     with_options length: { maximum: 3000 } do
       validates :problem

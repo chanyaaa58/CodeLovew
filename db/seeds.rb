@@ -1,11 +1,11 @@
-user = User.create!(name: "seed_user1", email: "seed1@seed.com", admin: true, password: "password01")
-user = User.create!(name: "seed_user2", email: "seed2@seed.com", admin: true, password: "password02")
-user = User.create!(name: "seed_user3", email: "seed3@seed.com", admin: false, password: "password03")
-user = User.create!(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
-user = User.create!(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
+user1 = User.create!(name: "seed_user1", email: "seed1@seed.com", admin: true, password: "password01")
+user2 = User.create!(name: "seed_user2", email: "seed2@seed.com", admin: true, password: "password02")
+user3 = User.create!(name: "seed_user3", email: "seed3@seed.com", admin: false, password: "password03")
+user4 = User.create!(name: "seed_user4", email: "seed4@seed.com", admin: false, password: "password04")
+user5 = User.create!(name: "seed_user5", email: "seed5@seed.com", admin: false, password: "password05")
 
 30.times { |n|
-  Review.create!(name: "basic_user#{n}", title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user.id )
+  Review.create!(title: "test_title#{n}", problem: "test_problem#{n}", detail: "test_detail#{n}", solution: "test_solution#{n}", content: "test_content#{n}", user_id: user5.id )
 }
 
 lavels = [
