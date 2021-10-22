@@ -4,18 +4,16 @@
     <title>OriginalApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <meta name="viewport" content="width=device-width">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <nav class="navbar fixed-top navbar-dark bg-dark">
+    <a class="navbar-brand" href="/">CodeLovew</a>
+  </nav>
   <header>
-    <div class="header-logo">
-      <a href="/">CodeLovew</a>
-    </div>
-  </header>
-
-  <body>
+    <nav class="menu">
     <% if user_signed_in? %>
       <%= link_to "ALL Reviews", reviews_path %>
       <%= link_to "Review!", new_review_path %>
@@ -30,7 +28,10 @@
       <%= link_to "Guest Log In", users_guest_sign_in_path, method: :post %>
       <%= link_to "Admin Guest Log In", users_guest_admin_sign_in_path, method: :post %>
     <% end %>
+    </nav>
+  </header>
 
+  <body>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
@@ -38,5 +39,8 @@
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
     <%= yield %>
+    <footer>
+      <p>&copy; 2021 - Aya Takahashi</p>
+    </footer>
   </body>
 </html>
