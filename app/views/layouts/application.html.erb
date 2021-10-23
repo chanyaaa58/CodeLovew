@@ -9,10 +9,11 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <nav class="navbar fixed-top navbar-dark bg-dark">
-    <a class="navbar-brand" href="/">CodeLovew</a>
-  </nav>
   <header>
+    <div class="header_logo">
+      <a href="/">CodeLovew</a>
+    </div>
+
     <nav class="menu">
     <% if user_signed_in? %>
       <%= link_to "ALL Reviews", reviews_path %>
