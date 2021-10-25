@@ -59,6 +59,7 @@ class ReviewsController < ApplicationController
     @search = Review.ransack(params[:q])
     @results = @search.result.order(created_at: :desc)
     @results = Kaminari.paginate_array(@results).page(params[:page]).per(10)
+    redirect_to reviews_path, alert: '検索結果は0件です。' if @results == []
   end
 
   private
