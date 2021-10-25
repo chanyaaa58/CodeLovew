@@ -17,26 +17,25 @@ group :development, :test do
   gem 'pry-rails'
   gem 'better_errors'
   gem 'binding_of_caller'
-end
-
-group :development do
-  gem 'web-console', '>= 3.3.0'
-  gem 'listen', '~> 3.2'
   gem 'spring'
-  gem 'spring-watcher-listen', '~> 2.0.0'
-  gem 'letter_opener_web'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
   gem 'factory_bot_rails'
   gem 'faker'
   gem 'launchy'
+  gem 'rexml'
+end
+
+group :development do
+  gem 'web-console', '>= 3.3.0'
+  gem 'listen', '~> 3.2'
+  gem 'spring-watcher-listen', '~> 2.0.0'
+  gem 'letter_opener_web'
 end
 
 group :test do
   gem 'capybara', '>= 2.15'
-  gem 'selenium-webdriver'
   gem 'webdrivers'
-  gem 'rexml'
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
