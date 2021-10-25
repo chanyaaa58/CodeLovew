@@ -27,8 +27,8 @@
         <td><%= review.content %></td>
         <td>
         <% review.labels.each do |label| %>
-            <%= label.name %>
-          <% end %>
+          <%= label.name %>
+        <% end %>
         </td>
         <td><%= link_to 'Show', review %></td>
         <td><%= link_to 'Edit', edit_review_path(review) %></td>

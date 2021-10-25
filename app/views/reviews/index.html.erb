@@ -5,13 +5,13 @@
 <%= form_with url: reviews_path, method: :get, local: true do |form| %>
   <%= form.label :name, 'Tags Search' %>
   <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
-  <%= form.submit 'Search', name: nil %>
+  <%= form.submit 'Search', id: 'non-gem' %>
 <% end %>
 
 <%= search_form_for @q, url: search_reviews_path do |form| %>
   <%= form.label :title_or_problem_or_detail_or_solution_or_content_cont, 'Keyword Search' %>
   <%= form.search_field :title_or_problem_or_detail_or_solution_or_content_cont %>
-  <%= form.submit 'Search' %>
+  <%= form.submit 'Search', id: 'ransack' %>
 <% end %>
 
 <h1>ALL Reviews</h1>
