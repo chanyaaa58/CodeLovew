@@ -20,33 +20,33 @@
     <%= form.label :title %><br>
     <%= form.text_field :title %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :problem %><br>
     <%= form.text_area :problem %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :detail %><br>
-    ※動画やサイトのURL記載もOKです！
+    ※動画やサイトのURL記載もOKです！<br>
     <%= form.text_area :detail %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :solution %><br>
     <%= form.text_area :solution %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :content %><br>
     <%= form.text_area :content %>
   </div>
-
+  <br>
   <div class="field">
     <%= form.label :タグ一覧 %><br>
     <%= form.collection_select :label_ids, Label.all, :id, :name, {:prompt => ""}, {multiple: true} %>
   </div>
-
+  <br>
   <div class="actions">
     <input type="submit" value="Confirm!">
   </div>

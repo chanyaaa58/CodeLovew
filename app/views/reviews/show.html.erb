@@ -49,7 +49,7 @@
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
-<%# <% if user_signed_in? && current_user.id == @comments.user_id %>
+<% if user_signed_in? && current_user.id == @review.user_id %>
   <%= link_to 'Edit', edit_review_path(@review) %> |
   <%= link_to 'Delete', @review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
 <% end %>

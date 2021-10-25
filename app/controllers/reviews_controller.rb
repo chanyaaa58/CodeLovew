@@ -12,9 +12,9 @@ class ReviewsController < ApplicationController
 
   def show
     @comments = @review.comments
-    @comment = @review.comments.build
+    @comment = Comment.new
+    @comments = @review.comments.order(created_at: :desc)
     @lovew = current_user.lovews.find_by(review_id: @review.id)
-    # @comment = current_user.comments.find_by(comment_id: @review.id)
   end
 
   def new
