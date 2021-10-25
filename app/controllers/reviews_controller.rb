@@ -28,14 +28,10 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build(review_params)
     @review.user_id = current_user.id
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: "レビューを投稿しました。" }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      redirect_to reviews_path, notice: "レビューを投稿しました。"
+    else
+      render :new
     end
   end
 
