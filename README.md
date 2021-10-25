@@ -4,10 +4,16 @@
 
 エンジニアリング学習における教材レビューアプリ「CodeLovew〜コードラビュー〜」
 
+## 製品名の由来
+
+製品名の「CodeLovew」は造語（coined word）です。<br>
+エンジニアを、「Codeを愛する（Love）人たち」と定義して、その人たちが教材レビュー（Review）をするアプリとして<br>
+Code + Love + Review から「CodeLovew」としました。
+
 ## 製品概要
 
 プログラミング学習中の初学者から現役エンジニアまでが教材を探す際に活用できるアプリ。<br>
-ネットで検索しても書籍の中身までは分からず、おすすめのyoutubeチャンネルを紹介されても<br>
+おすすめのyoutubeチャンネルを紹介されても<br>
 実際にどんな（What）疑問をもっていた際にどのように（How）活用できたのかまでは分からない。<br>
 喋る速度や、声の高さ低さ、動画1本の長さは10分以内なのか、長く丁寧なのかまで不明。<br>
 そんな既存サービスの使いづらさを解決するアプリです。
@@ -57,10 +63,12 @@ https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=1096734834
 
 ## ER図
+![original_app_erd drawio](https://user-images.githubusercontent.com/86763220/137439883-9ed3d216-1a84-40d3-9bb5-3823168e315b.png)
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=72546783
 
 ## 画面遷移図
+![original_app_op drawio](https://user-images.githubusercontent.com/86763220/136342933-e820d563-b282-4eb5-b83d-016066577f88.png)
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=694438830
 

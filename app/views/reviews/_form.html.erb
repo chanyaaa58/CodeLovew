@@ -1,0 +1,53 @@
+<%= form_with(model: review, local: true) do |form| %>
+  <% if review.errors.any? %>
+    <div id="error_explanation">
+      <h3><%= @review.errors.count %>件のエラーがあります。</h3>
+
+      <ul>
+        <% review.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>:
+    <%= current_user.name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :problem %><br>
+    <%= form.text_area :problem %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :detail %><br>
+    ※動画やサイトのURL記載もOKです！<br>
+    <%= form.text_area :detail %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :solution %><br>
+    <%= form.text_area :solution %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :content %><br>
+    <%= form.text_area :content %>
+  </div>
+  <br>
+  <div class="field">
+    <%= form.label :タグ一覧 %><br>
+    <%= form.collection_select :label_ids, Label.all, :id, :name, {:prompt => ""}, {multiple: true} %>
+  </div>
+  <br>
+  <div class="actions">
+    <input type="submit" value="Confirm!">
+  </div>
+<% end %>

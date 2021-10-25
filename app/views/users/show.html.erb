@@ -1,0 +1,100 @@
+<h1>My Page</h1>
+
+<%= image_tag(@user.icon.url) if @user.icon && @user.icon.url %><br>
+<p>
+  <strong>Name:</strong>
+  <%= @user.name %><br>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @user.email %><br>
+</p>
+
+<p><%= link_to 'Edit', edit_user_registration_path(@user.id) %></p>
+<p><%= link_to 'Delete', users_confirm_path(id: @user.id), method: :post %></p>
+
+
+<br>
+<h1>Lovews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Problem</th>
+      <th>Detail</th>
+      <th>Solution</th>
+      <th>Content</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lovew_reviews.each do |review| %>
+      <tr>
+        <%# <td><%= review.user.name %></td>
+        <td><%= review.user.name %></td>
+        <td><%= review.title %></td>
+        <td><%= review.problem %></td>
+        <td><%= review.detail %></td>
+        <td><%= review.solution %></td>
+        <td><%= review.content %></td>
+        <td>
+          <% review.labels.each do |label| %>
+            <%= label.name %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Read more', review %></td>
+        <% if user_signed_in? && current_user.id == review.user_id %>
+          <td><%= link_to 'Edit', edit_review_path(review) %></td>
+          <td><%= link_to 'Delete', review, method: :delete, data: { confirm: '削除しても本当に良いですか？' } %></td>
+      　<% end %>
+    　</tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @lovew_reviews %>
+
+<h1>My Reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Problem</th>
+      <th>Detail</th>
+      <th>Solution</th>
+      <th>Content</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @user.reviews.each do |review| %>
+    <tr>
+      <td><%= review.user.name %></td>
+      <td><%= review.title %></td>
+      <td><%= review.problem %></td>
+      <td><%= review.detail %></td>
+      <td><%= review.solution %></td>
+      <td><%= review.content %></td>
+      <td>
+        <% review.labels.each do |label| %>
+          <%= label.name %>
+        <% end %>
+      </td>
+      <td><%= link_to 'Read more', review %></td>
+      <td><%= link_to 'Edit', edit_review_path(review) %></td>
+      <td><%= link_to 'Delete', review, method: :delete, data: { confirm: '削除しても本当に良いですか？' } %></td>
+    </tr>
+  <% end %>
+  </tbody>
+<table>
+
+<%= paginate @reviews %>
+

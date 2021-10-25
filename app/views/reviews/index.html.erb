@@ -1,0 +1,65 @@
+<h1>Search Zone</h1>
+
+<%= link_to "Search Reset", reviews_path %>
+
+<%= form_with url: reviews_path, method: :get, local: true do |form| %>
+  <%= form.label :name, 'Tags Search' %>
+  <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
+  <%= form.submit 'Search', name: nil %>
+<% end %>
+
+<%= search_form_for @q, url: search_reviews_path do |form| %>
+  <%= form.label :title_or_problem_or_detail_or_solution_or_content_cont, 'Keyword Search' %>
+  <%= form.search_field :title_or_problem_or_detail_or_solution_or_content_cont %>
+  <%= form.submit 'Search' %>
+<% end %>
+
+<h1>ALL Reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Title</th>
+      <th>Problem</th>
+      <th>Detail</th>
+      <th>Solution</th>
+      <th>Content</th>
+      <th>Tags</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.user.name %></td>
+        <td><%= review.title %></td>
+        <td><%= review.problem %></td>
+        <td><%= review.detail %></td>
+        <td><%= review.solution %></td>
+        <td><%= review.content %></td>
+        <td>
+          <% review.labels.each do |label| %>
+            <%= label.name %>
+          <% end %>
+        </td>
+        <td><%= link_to 'Read more', review %></td>
+        <% if user_signed_in? && current_user.id == review.user_id %>
+          <td><%= link_to 'Edit', edit_review_path(review) %></td>
+          <td><%= link_to 'Delete', review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %></td>
+        <% end %>
+
+        <% if user_signed_in? %>
+          <% if review.lovewd_by?(current_user) %>
+            <td><span>Lovew!: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :delete %></td>
+          <% else %>
+            <td><span>Lovew!: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :post %></td>
+          <% end %>
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= paginate @reviews %>
