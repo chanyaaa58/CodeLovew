@@ -7,6 +7,7 @@ class User < ApplicationRecord
   has_many :reviews, dependent: :destroy
   has_many :lovews, dependent: :destroy
   has_many :lovew_reviews, through: :lovews, source: :review
+  has_many :comments, dependent: :destroy
 
   with_options presence: true do
     validates :name, length: { maximum: 20 }

@@ -1,8 +1,9 @@
 class CommentsController < ApplicationController
   before_action :set_review, only: [:create, :edit, :update]
   def create
-    @review = Review.find(params[:review_id])
     @comment = @review.comments.build(comment_params)
+    @comment.user_id = current_user.id
+
     respond_to do |format|
       if @comment.save
         format.js { render :index }
@@ -41,7 +42,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:review_id, :content)
+    params.require(:comment).permit(:content,:review_id, :user_id)
   end
 
   def set_review

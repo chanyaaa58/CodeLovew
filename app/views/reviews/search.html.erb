@@ -1,4 +1,7 @@
 <h1>Search Result</h1>
+
+<%= link_to "Search Reset", reviews_path %>
+
 <table>
   <thead>
     <tr>
@@ -16,7 +19,7 @@
   <tbody>
     <% @results.each do |review| %>
       <tr>
-        <td><%= review.name %></td>
+        <td><%= review.user.name %></td>
         <td><%= review.title %></td>
         <td><%= review.problem %></td>
         <td><%= review.detail %></td>

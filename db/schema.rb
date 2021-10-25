@@ -17,10 +17,12 @@ ActiveRecord::Schema.define(version: 2021_10_19_081347) do
 
   create_table "comments", force: :cascade do |t|
     t.bigint "review_id", null: false
+    t.bigint "user_id", null: false
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["review_id"], name: "index_comments_on_review_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "labellings", force: :cascade do |t|
@@ -75,6 +77,7 @@ ActiveRecord::Schema.define(version: 2021_10_19_081347) do
   end
 
   add_foreign_key "comments", "reviews"
+  add_foreign_key "comments", "users"
   add_foreign_key "labellings", "labels"
   add_foreign_key "labellings", "reviews"
   add_foreign_key "lovews", "reviews"
