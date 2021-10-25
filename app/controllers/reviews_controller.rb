@@ -5,8 +5,8 @@ class ReviewsController < ApplicationController
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).order(created_at: :desc)
-    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).order(created_at: :desc) if params[:label_id].present?
-    @reviews = Kaminari.paginate_array(@reviews).page(params[:page])
+    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).per(10).order(created_at: :desc) if params[:label_id].present?
+    @reviews = Kaminari.paginate_array(@reviews).page(params[:page]).per(10)
     flash.now[:alert] = "引き続きご利用いただき、ありがとうございます！！" if params[:cancel_quit]
   end
 
@@ -61,7 +61,7 @@ class ReviewsController < ApplicationController
   def search
     @search = Review.ransack(params[:q])
     @results = @search.result.order(created_at: :desc)
-    @results = Kaminari.paginate_array(@results).page(params[:page])
+    @results = Kaminari.paginate_array(@results).page(params[:page]).per(10)
   end
 
   private

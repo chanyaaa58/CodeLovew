@@ -9,10 +9,18 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
+  <body>
   <header>
     <div class="header_logo">
       <a href="/">CodeLovew</a>
     </div>
+
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
 
     <nav class="menu">
     <% if user_signed_in? %>
@@ -32,13 +40,6 @@
     </nav>
   </header>
 
-  <body>
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
     <%= yield %>
     <footer>
       <p>&copy; 2021 - Aya Takahashi</p>

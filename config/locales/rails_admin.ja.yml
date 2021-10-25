@@ -56,7 +56,6 @@ ja:
     table_headers:
       model_name: "モデル名"
       last_used: "最終アクセス日"
-      last_created: "最終更新"
       records: "レコード数"
       username: "ユーザ"
       changes: "変更"
@@ -141,7 +140,7 @@ ja:
       display: "カラム:%{name} 型:%{type}"
       options_for: "%{name}の出力オプション"
       empty_value_for_associated_objects: "<empty>"
-      click_to_reverse_selection: "クリックで選択を反転します"
+      click_to_reverse_selection: 'クリックで選択を反転します'
       csv:
         header_for_root_methods: "%{name}" # 'model' is available
         header_for_association_methods: "%{name} [%{association}]"

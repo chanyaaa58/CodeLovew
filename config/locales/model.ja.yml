@@ -3,10 +3,6 @@ ja:
     models:
       user: ユーザー
       label: タグ
-      comment: コメント
-      labelling: タグ付けされたレビュー
-      lovew: ラビュー
-      review: レビュー
     attributes:
       review:
         name: ユーザー名
