@@ -14,6 +14,7 @@ class ReviewsController < ApplicationController
     @comments = @review.comments
     @comment = @review.comments.build
     @lovew = current_user.lovews.find_by(review_id: @review.id)
+    # @comment = current_user.comments.find_by(comment_id: @review.id)
   end
 
   def new
@@ -71,6 +72,6 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })
+      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })#, { comment_ids: [] })
     end
 end
