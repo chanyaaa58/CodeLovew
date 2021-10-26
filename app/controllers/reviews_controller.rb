@@ -1,5 +1,5 @@
 class ReviewsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!
   before_action :set_review, only: %i[ show edit update destroy ]
 
   def index
@@ -28,14 +28,10 @@ class ReviewsController < ApplicationController
     @review = current_user.reviews.build(review_params)
     @review.user_id = current_user.id
 
-    respond_to do |format|
-      if @review.save
-        format.html { redirect_to @review, notice: "レビューを投稿しました。" }
-        format.json { render :show, status: :created, location: @review }
-      else
-        format.html { render :new, status: :unprocessable_entity }
-        format.json { render json: @review.errors, status: :unprocessable_entity }
-      end
+    if @review.save
+      redirect_to reviews_path, notice: "レビューを投稿しました。"
+    else
+      render :new
     end
   end
 
@@ -63,6 +59,7 @@ class ReviewsController < ApplicationController
     @search = Review.ransack(params[:q])
     @results = @search.result.order(created_at: :desc)
     @results = Kaminari.paginate_array(@results).page(params[:page]).per(10)
+    redirect_to reviews_path, alert: '検索結果は0件です。' if @results == []
   end
 
   private
