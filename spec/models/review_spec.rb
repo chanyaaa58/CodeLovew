@@ -1,2 +1,3 @@
-require 'rails_helper'
-RSpec.describe , type: :model do
+# require 'rails_helper'
+# RSpec.describe , type: :model do
+# end

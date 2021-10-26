@@ -84,11 +84,11 @@ RSpec.describe 'ユーザー管理機能', type: :system do
         login
       end
       it 'アカウントが削除できる' do
-        visit users_confirm_path
+        visit user_path(id: @user1.id)
+        click_link 'Delete'
         click_link 'Yes'
-        page.driver.browser.switch_to.alert.accept
-        expect(page).to have_content '退会処理が完了いたしました。ご利用いただきありがとうございました！
-        '
+        sleep 2.0
+        expect(page).to have_content '退会処理が完了いたしました。ご利用いただきありがとうございました！'
       end
     end
   end

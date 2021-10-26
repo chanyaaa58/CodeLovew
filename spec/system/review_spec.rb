@@ -12,7 +12,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
   before do
     @user1 = FactoryBot.create(:user1)
     @user2 = FactoryBot.create(:user2)
-    # @label1 = FactoryBot.create(:label1)
+    @label1 = FactoryBot.create(:label1)
     # @label2 = FactoryBot.create(:label2)
     FactoryBot.create(:review, user: @user1)#, label: @label1)
     FactoryBot.create(:second_review,  user: @user2)#, label: @label2)
@@ -68,14 +68,15 @@ RSpec.describe 'レビュー投稿機能', type: :system do
       login
       visit reviews_path
     end
-    # context 'タグ検索をした場合' do
-    #   it 'その検索したタグが紐付いた検索結果のみが表示される' do
-    #     fill_in 'review[label_ids]', with: 'label1'
-    #     find('#non-gem').click
-    #     expect(page).to have_content 'label1'
-    #     expect(page).to have_no_content 'おそい'
-    #   end
-    # end
+    context 'タグ検索をした場合' do
+      it 'その検索したタグが紐付いた検索結果のみが表示される' do
+        binding.irb
+        select 'label1', from: 'review[label_ids]'
+        find('#non-gem').click
+        expect(page).to have_content 'label1'
+        expect(page).to have_no_content 'おそい'
+      end
+    end
 
     context 'キーワード検索をした場合' do
       it 'その検索したキーワードのあいまい検索の結果が表示される' do
