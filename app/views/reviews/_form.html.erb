@@ -18,28 +18,29 @@
 
   <div class="field">
     <%= form.label :title %><br>
-    <%= form.text_field :title %>
+    <%= form.text_field :title, placeholder: "教材名を入力してください" %>
   </div>
   <br>
   <div class="field">
     <%= form.label :problem %><br>
-    <%= form.text_area :problem %>
+    <%= form.text_area :problem, placeholder: "解決したかった内容を入力してください" %>
   </div>
   <br>
   <div class="field">
     <%= form.label :detail %><br>
     ※動画やサイトのURL記載もOKです！<br>
-    <%= form.text_area :detail %>
+    <%= form.text_area :detail, placeholder: "教材で参考にした場所を入力してください" %>
   </div>
   <br>
   <div class="field">
     <%= form.label :solution %><br>
-    <%= form.text_area :solution %>
+    ※よろしければご記載ください！
+    <%= form.text_area :solution, placeholder: "どのように解決したかを入力してください" %>
   </div>
   <br>
   <div class="field">
     <%= form.label :content %><br>
-    <%= form.text_area :content %>
+    <%= form.text_area :content, placeholder: "自由記入欄です" %>
   </div>
   <br>
   <div class="field">
