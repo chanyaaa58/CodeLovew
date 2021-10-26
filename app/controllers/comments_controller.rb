@@ -6,9 +6,9 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.js { render :index }
-      else
         format.html { redirect_to review_path(@review) }
+      else
+        format.html { redirect_to review_path(@review), notice: '何らかの理由で投稿できませんでした。' }
       end
     end
   end
