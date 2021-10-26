@@ -13,11 +13,10 @@ RSpec.describe 'レビュー投稿機能', type: :system do
     @user1 = FactoryBot.create(:user1)
     @user2 = FactoryBot.create(:user2)
     @label1 = FactoryBot.create(:label1)
-    # @label2 = FactoryBot.create(:label2)
-    FactoryBot.create(:review, user: @user1)#, label: @label1)
-    FactoryBot.create(:second_review,  user: @user2)#, label: @label2)
-    @review = FactoryBot.create(:review, user: @user1)#, label: @label1)
-    @second_review = FactoryBot.create(:second_review, user: @user2)#, label: @label2)
+    FactoryBot.create(:review, user: @user1)
+    FactoryBot.create(:second_review, user: @user2)
+    @review = FactoryBot.create(:review, user: @user1)
+    @second_review = FactoryBot.create(:second_review, user: @user2)
   end
 
   describe 'CRUD機能のテスト' do
@@ -67,15 +66,6 @@ RSpec.describe 'レビュー投稿機能', type: :system do
     before do
       login
       visit reviews_path
-    end
-    context 'タグ検索をした場合' do
-      it 'その検索したタグが紐付いた検索結果のみが表示される' do
-        binding.irb
-        select 'label1', from: 'review[label_ids]'
-        find('#non-gem').click
-        expect(page).to have_content 'label1'
-        expect(page).to have_no_content 'おそい'
-      end
     end
 
     context 'キーワード検索をした場合' do
