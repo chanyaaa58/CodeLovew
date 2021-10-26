@@ -15,13 +15,6 @@
       <a href="/">CodeLovew</a>
     </div>
 
-    <% if notice %>
-      <p class="alert alert-notice"><%= notice %></p>
-    <% end %>
-    <% if alert %>
-      <p class="alert alert-error"><%= alert %></p>
-    <% end %>
-
     <nav class="menu">
     <% if user_signed_in? %>
       <%= link_to "ALL Reviews", reviews_path %>
@@ -39,7 +32,12 @@
     <% end %>
     </nav>
   </header>
-
+    <% if notice %>
+      <p class="alert alert-notice"><%= notice %></p>
+    <% end %>
+    <% if alert %>
+      <p class="alert alert-error"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <footer>
       <p>&copy; 2021 - Aya Takahashi</p>
