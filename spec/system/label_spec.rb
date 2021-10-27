@@ -29,7 +29,7 @@ RSpec.describe 'タグ管理機能', type: :system do
         fill_in 'review[detail]', with: 'test_detail'
         fill_in 'review[solution]', with: 'test_solution'
         fill_in 'review[content]', with: 'test_content'
-        check "review_label_ids_#{(@label1.id)}"
+        select 'label1', from: 'review_label_ids'
         click_button 'Confirm!'
         expect(page).to have_content 'label1'
       end

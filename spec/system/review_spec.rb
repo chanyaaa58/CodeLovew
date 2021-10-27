@@ -24,7 +24,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
     #   login
     # end
     context '新規投稿した場合' do
-      it '(ラベルも一緒に)登録され、投稿一覧ページに遷移する' do
+      it '(タグも一緒に)登録され、投稿一覧ページに遷移する' do
         login
         visit new_review_path
         fill_in 'review[title]', with: 'test_title'
@@ -49,7 +49,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
         fill_in 'review[detail]', with: 'test_detail'
         fill_in 'review[solution]', with: 'test_solution'
         fill_in 'review[content]', with: 'test_content'
-        select "label1", from: "review[label_ids][]" # ラベルつける
+        select "label1", from: "review[label_ids][]" # タグつける
         click_button 'Confirm!'
         expect(page).to have_content '投稿を更新しました。'
         expect(page).to have_content 'ALL Reviews'
@@ -57,7 +57,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
       end
     end
 
-    context '投稿とラベルを編集した場合' do
+    context '投稿とタグを編集した場合' do
       it '編集・更新され、投稿一覧ページに遷移する' do
         login
         # @user1 = FactoryBot.create(:user1)
@@ -70,7 +70,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
         fill_in 'review[detail]', with: 'test_detail'
         fill_in 'review[solution]', with: 'test_solution'
         fill_in 'review[content]', with: 'test_content'
-        select "label2", from: "review[label_ids][]" # ラベル2つける
+        select "label2", from: "review[label_ids][]" # タグの2番目をつける
         click_button 'Confirm!'
         expect(page).to have_content '投稿を更新しました。'
         expect(page).to have_content "label2"
@@ -109,7 +109,6 @@ RSpec.describe 'レビュー投稿機能', type: :system do
 
     context 'キーワード検索をした場合' do
       it 'その検索したキーワードのあいまい検索の結果が表示される' do
-        binding.irb
         fill_in 'q[title_or_problem_or_detail_or_solution_or_content_cont]', with: 'test_problem'
         find('#ransack').click
         expect(page).to have_content 'test_problem'
