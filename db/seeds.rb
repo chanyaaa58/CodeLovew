@@ -11,8 +11,7 @@ user5 = User.create!(name: "seed_user5", email: "seed5@seed.com", admin: false, 
     detail: "Ruby On Rails入門｜90分でマスター！RubyOnRailsチュートリアル入門（https://www.youtube.com/watch?v=IyEcu9e1YgM&t=9s）#{n}",
     solution: "動画を見ながらアプリを作ってみた#{n}",
     content: "「えっ？こんな細かい所まで説明してくれるの？」と思うほど、初学者に寄り添って、ここがわからないだろうなという箇所を漏れなく1つ1つ丁寧に解説してくれていて、理解を深めるのに非常に役に立ちました！#{n}",
-    user_id: user5.id )#,
-    #label_ids: labels1.id )
+    user_id: user5.id )
 }
 
 lavels = [
@@ -61,8 +60,20 @@ lavels = [
 ]
 Label.create!(lavels)
 
-comment = Comment.create!(review_id: 19, user_id:1, content: "わかりやすい！")
-comment = Comment.create!(review_id: 19, user_id:2, content: "理解が深まりました！")
-comment = Comment.create!(review_id: 19, user_id:3, content: "「〜」について質問です！")
-comment = Comment.create!(review_id: 19, user_id:4, content: "すみません。よくわかりません…")
-comment = Comment.create!(review_id: 19, user_id:5, content: "ありがとうございます！")
+5.times { |n|
+  Labelling.create!(
+  review_id: Review.first.id + n,
+  label_id: Label.first.id + n )
+}
+
+comment = Comment.create!(review_id: Review.first.id, user_id: user5.id, content: "わかりやすい！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user4.id, content: "理解が深まりました！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user3.id, content: "「〜」について質問です！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user2.id, content: "すみません。よくわかりません…")
+comment = Comment.create!(review_id: Review.first.id, user_id: user1.id, content: "ありがとうございます！")
+
+5.times { |n|
+  Lovew.create!(
+  review_id: Review.first.id + n,
+  user_id: user1.id )
+}
