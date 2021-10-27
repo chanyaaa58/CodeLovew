@@ -19,7 +19,7 @@
             <%= form.submit 'Search', id: 'ransack' %>
           <% end %>
         </div>
-     </div>
+      </div>
       <div class="col-sm-8">
         <h1>ALL Reviews</h1>
 
@@ -32,9 +32,9 @@
 
               <% if user_signed_in? %>
                 <% if review.lovewd_by?(current_user) %>
-                  <span>Lovew!: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :delete %>
+                  <span>Lovew!: </span><%=link_to "♥#{review.lovews.count}", review_lovews_path(review.id), class: "heart", method: :delete %>
                 <% else %>
-                  <span>Lovew!: </span><%=link_to review.lovews.count, review_lovews_path(review.id), method: :post %>
+                  <span>Lovew!: </span><%=link_to "♡#{review.lovews.count}", review_lovews_path(review.id), class: "unheart", method: :post %>
                 <% end %>
               <% end %>
             </h6>

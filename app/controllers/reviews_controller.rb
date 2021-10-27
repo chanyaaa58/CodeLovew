@@ -1,6 +1,7 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :check_review_user, only: %i(edit update destroy)
 
   def index
     @q = Review.ransack(params[:q])
@@ -69,6 +70,11 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })#, { comment_ids: [] })
+      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })
     end
+  def check_review_user
+    if @review.user != current_user
+      redirect_to reviews_path, notice: "権限がありません"
+    end
+  end
 end

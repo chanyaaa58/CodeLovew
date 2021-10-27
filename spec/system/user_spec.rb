@@ -70,7 +70,7 @@ RSpec.describe 'ユーザー管理機能', type: :system do
       it 'ユーザー情報の編集画面から編集ができ、マイページへ遷移する' do
         visit edit_user_registration_path(id: @user1.id)
         fill_in 'user[name]', with: 'user_edit'
-        fill_in 'user[current_password]', with: 'password'
+        fill_in 'user[current_password]', with: @user1.password
         click_button 'Confirm!'
         expect(page).to have_content 'プロフィールを編集しました。'
       end
