@@ -17,18 +17,18 @@
 
     <nav class="menu">
     <% if user_signed_in? %>
-      <a class="btn btn-info rounded-pill btn-lg " href="/reviews" role="button">ALL Reviews</a>
-      <%# <%= link_to "ALL Reviews", reviews_path %>
-      <a class="btn btn-danger rounded-pill btn-lg" href="/reviews/new" role="button">Review!</a>
-      <%# <%= link_to "Review!", new_review_path %>
-      <%# <a class="btn btn-warning btn-lg" href="#" role="button">My Page</a> %>
+    <%# <a class="btn btn-danger btn-lg" href="/users/sign_out" role="button">Log Out</a> %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"btn btn-danger btn-lg" %>
+    <%# <a class="btn btn-warning btn-lg" href="#" role="button">My Page</a> %>
       <%= link_to "My page", user_path(current_user.id) %>
-      <%# <a class="btn btn-danger btn-lg" href="/users/sign_out" role="button">Log Out</a> %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      <% if current_user.admin? %>
-        <a class="btn-outline-secondary btn-lg" href="/admin" role="button">管理画面</a>
-        <%# <%= link_to "管理画面", rails_admin_path %>
-      <% end %>
+      <a class="btn btn-danger rounded-pill btn-lg" href="/reviews/new" role="button">Review!</a>
+    <%# <%= link_to "Review!", new_review_path %>
+      <a class="btn btn-info rounded-pill btn-lg " href="/reviews" role="button">ALL Reviews</a>
+    <%# <%= link_to "ALL Reviews", reviews_path %>
+    <% if current_user.admin? %>
+      <a class="btn-outline-secondary btn-lg" href="/admin" role="button">管理画面</a>
+      <%# <%= link_to "管理画面", rails_admin_path %>
+    <% end %>
     <% else %>
       <%# <a class="btn btn-outline-secondary bg-light btn-lg" href="/users/guest_admin_sign_in" role="button">Admin Guest Log In</a> %>
       <%= link_to "Admin Guest Log In", users_guest_admin_sign_in_path, method: :post %>
@@ -40,13 +40,13 @@
       <%# <%= link_to "Log In", new_user_session_path %> %>
     <% end %>
     </nav>
-  </header>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
+  </header>
 
     <%= yield %>
 

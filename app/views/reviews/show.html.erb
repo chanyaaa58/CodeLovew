@@ -1,57 +1,50 @@
-<h1>Review Detail</h1>
+<div class="show-area">
+  <h1>Review Detail</h1>
+    <p>
+      <strong>Name:</strong>
+      <%= @review.user.name %>
+    </p>
 
-<div class="container">
-  <div class="review-text">
+    <p>
+      <strong>Title:</strong>
+      <%= @review.title %>
+    </p>
 
-  <p>
-    <strong>Name:</strong>
-    <%= @review.user.name %>
-  </p>
+    <p>
+      <strong>Problem:</strong>
+      <%= @review.problem %>
+    </p>
 
-  <p>
-    <strong>Title:</strong>
-    <%= @review.title %>
-  </p>
+    <p>
+      <strong>Detail:</strong>
+      <%= @review.detail %>
+    </p>
 
-  <p>
-    <strong>Problem:</strong>
-    <%= @review.problem %>
-  </p>
+    <p>
+      <strong>Solution:</strong>
+      <%= @review.solution %>
+    </p>
 
-  <p>
-    <strong>Detail:</strong>
-    <%= @review.detail %>
-  </p>
+    <p>
+      <strong>Content:</strong>
+      <%= @review.content %>
+    </p>
 
-  <p>
-    <strong>Solution:</strong>
-    <%= @review.solution %>
-  </p>
+    <p>
+      <strong>Tags:</strong>
+      <% @review.labels.each do |label| %>
+        <%= label.name %>
+      <% end %>
+    </p>
 
-  <p>
-    <strong>Content:</strong>
-    <%= @review.content %>
-  </p>
-
-  <p>
-    <strong>Tags:</strong>
-    <% @review.labels.each do |label| %>
-      <%= label.name %>
-    <% end %>
-  </p>
-  </div>
-
-  <p>
-  <strong>Comments</strong>
-  </p>
+  <p><strong>Comments</strong></p>
   <div id="comments_area">
     <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
   </div>
   <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 
-<% if user_signed_in? && current_user.id == @review.user_id %>
-  <%= link_to 'Edit', edit_review_path(@review) %> |
-  <%= link_to 'Delete', @review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
-<% end %>
-
+  <% if user_signed_in? && current_user.id == @review.user_id %>
+    <%= link_to 'Edit', edit_review_path(@review) %> |
+    <%= link_to 'Delete', @review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
+  <% end %>
 </div>
