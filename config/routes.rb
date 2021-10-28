@@ -19,9 +19,9 @@ Rails.application.routes.draw do
   resources :reviews do
     resource :lovews, only: [:create, :destroy]
     resources :comments
-      collection do
-        get 'search'
-      end
+    # collection do
+    #   get 'search'
+    # end
   end
 
   mount LetterOpenerWeb::Engine, at: "/mail_box" if Rails.env.development?

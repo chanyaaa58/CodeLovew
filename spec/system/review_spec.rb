@@ -120,7 +120,7 @@ RSpec.describe 'レビュー投稿機能', type: :system do
       it '検索結果ページに推移し、投稿が1件も表示されない' do
         fill_in 'q[title_or_problem_or_detail_or_solution_or_content_cont]', with: 'さむい'
         find('#ransack').click
-        expect(page).to have_content '検索結果は0件です。'
+        expect(page).to have_content '検索結果はありませんでした'
       end
     end
   end
