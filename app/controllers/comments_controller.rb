@@ -23,7 +23,6 @@ class CommentsController < ApplicationController
 
   def update
     @comment = @review.comments.find(params[:id])
-    # binding.irb
       respond_to do |format|
         if @comment.update(comment_params)
           format.js { render :index }
