@@ -57,6 +57,15 @@ RSpec.describe 'レビュー投稿機能', type: :system do
       end
     end
 
+    context '他人の投稿を編集しようとした場合' do
+      it '投稿一覧ページに遷移してmsgが表示される' do
+        login
+        visit edit_review_path(id: @second_review.id)
+        expect(current_path).to eq "/reviews"
+        expect(page).to have_content '権限がありません'
+      end
+    end
+
     context '投稿とタグを編集した場合' do
       it '編集・更新され、投稿一覧ページに遷移する' do
         login
