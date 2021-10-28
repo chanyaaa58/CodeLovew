@@ -1,50 +1,48 @@
 <div class="show-area">
   <h1>Review Detail</h1>
-    <p>
-      <strong>Name:</strong>
-      <%= @review.user.name %>
-    </p>
-
-    <p>
-      <strong>Title:</strong>
-      <%= @review.title %>
-    </p>
-
-    <p>
-      <strong>Problem:</strong>
-      <%= @review.problem %>
-    </p>
-
-    <p>
-      <strong>Detail:</strong>
-      <%= @review.detail %>
-    </p>
-
-    <p>
-      <strong>Solution:</strong>
-      <%= @review.solution %>
-    </p>
-
-    <p>
-      <strong>Content:</strong>
-      <%= @review.content %>
-    </p>
-
-    <p>
-      <strong>Tags:</strong>
-      <% @review.labels.each do |label| %>
-        <%= label.name %>
+    <h6>
+      <% if user_signed_in? && current_user.id == @review.user_id %>
+        <%= link_to 'Edit', edit_review_path(@review), class: "review_edit" %>
+        <%= link_to 'Delete', @review, class: "review_delete", method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
       <% end %>
-    </p>
-
-  <p><strong>Comments</strong></p>
-  <div id="comments_area">
-    <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
-  </div>
-  <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
-
-  <% if user_signed_in? && current_user.id == @review.user_id %>
-    <%= link_to 'Edit', edit_review_path(@review) %> |
-    <%= link_to 'Delete', @review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %>
-  <% end %>
+    </h6>
+    <table>
+      <tr>
+        <th>Name:</th>
+        <td><%= @review.user.name %></td>
+      </tr>
+      <tr>
+        <th>Title:</th>
+        <td><%= @review.title %></td>
+      </tr>
+      <tr>
+        <th>Problem:</th>
+        <td><%= @review.problem %>/tr></td>
+      </tr>
+      <tr>
+        <th>Detail:</th>
+        <th><%= @review.detail %></th>
+      </tr>
+      <tr>
+        <th>Solution:</th>
+        <td><%= @review.solution %></td>
+      </tr>
+      <tr>
+        <th>Content:</th>
+        <td><%= @review.content %></td>
+      </tr>
+      <tr>
+        <th>Tags:</th>
+        <td>
+          <% @review.labels.each do |label| %>
+            <%= label.name %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+        <strong>Comments:</strong>
+          <div id="comments_area">
+            <%= render partial: 'comments/index', locals: { comments: @comments, review: @review } %>
+          </div>
+          <%= render partial: 'comments/form', locals: { comment: @comment, review: @review } %>
 </div>

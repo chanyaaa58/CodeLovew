@@ -1,41 +1,48 @@
-<h1>Search Result</h1>
+<div class="result-area">
+  <h1>Search Result</h1>
 
-<%= link_to "Search Reset", reviews_path %>
+  <%= link_to "Search Reset", reviews_path %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Title</th>
-      <th>Problem</th>
-      <th>Detail</th>
-      <th>Solution</th>
-      <th>Content</th>
-      <th>Tags</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @results.each do |review| %>
+  <% @results.each do |review| %>
+    <h6>
+      <%= link_to 'Show', review %></td>
+      <%= link_to 'Edit', edit_review_path(review) %></td>
+      <%= link_to 'Destroy', review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %></td>
+    </h6>
+    <table>
       <tr>
+        <th>Name</th>
         <td><%= review.user.name %></td>
-        <td><%= review.title %></td>
-        <td><%= review.problem %></td>
-        <td><%= review.detail %></td>
-        <td><%= review.solution %></td>
-        <td><%= review.content %></td>
-        <td>
-        <% review.labels.each do |label| %>
-          <%= label.name %>
-        <% end %>
-        </td>
-        <td><%= link_to 'Show', review %></td>
-        <td><%= link_to 'Edit', edit_review_path(review) %></td>
-        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: '削除しても本当に良いですか?' } %></td>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<%= paginate @results %>
+      <tr>
+        <th>Title</th>
+        <td><%= review.title %></td>
+      </tr>
+      <tr>
+        <th>Problem</th>
+        <td><%= review.problem %></td>
+      </tr>
+      <tr>
+        <th>Detail</th>
+        <td><%= review.detail %></td>
+      </tr>
+      <tr>
+        <th>Solution</th>
+        <td><%= review.solution %></td>
+      </tr>
+      <tr>
+        <th>Content</th>
+        <td><%= review.content %></td>
+      </tr>
+      <tr>
+        <th>Tags</th>
+        <td>
+          <% review.labels.each do |label| %>
+            <%= label.name %>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  <% end %>
+  <%= paginate @results %>
+</div>

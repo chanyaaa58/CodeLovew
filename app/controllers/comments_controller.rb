@@ -6,7 +6,8 @@ class CommentsController < ApplicationController
 
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to review_path(@review) }
+        format.js { render :index }
+        # format.html { redirect_to review_path(@review) }
       else
         format.html { redirect_to review_path(@review), notice: '何らかの理由で投稿できませんでした。' }
       end
@@ -22,6 +23,7 @@ class CommentsController < ApplicationController
 
   def update
     @comment = @review.comments.find(params[:id])
+    # binding.irb
       respond_to do |format|
         if @comment.update(comment_params)
           format.js { render :index }
@@ -42,7 +44,7 @@ class CommentsController < ApplicationController
   private
 
   def comment_params
-    params.require(:comment).permit(:content,:review_id, :user_id)
+    params.require(:comment).permit(:content, :review_id, :user_id)
   end
 
   def set_review

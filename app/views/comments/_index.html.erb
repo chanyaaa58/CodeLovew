@@ -3,11 +3,11 @@
     <% if comment.id.present? %>
       <li>
         <div class="comment-content" id ="this_comment_<%= comment.id %>"></div>
-        <p><%= comment.user.name %></p>
-        <p><%= comment.content %></p>
+        <p>commented_by: <%= comment.user.name %></p>
+        <%= comment.content %>
         <% if user_signed_in? && current_user.id == comment.user_id %>
-          <p><%= link_to "Edit", edit_review_comment_path(review, comment), remote: true %></p>
-          <p><%= link_to "Delete", review_comment_path(comment.review_id, comment.id), method: :delete, remote: true,
+          <p><%= link_to "Edit", edit_review_comment_path(review, comment), class: "edit_comment", remote: true %></p>
+          <p><%= link_to "Delete", review_comment_path(comment.review_id, comment.id), class: "delete_comment", method: :delete, remote: true,
                                         data: { confirm: "本当に削除しますか?"} %></p>
         <% end %>
       </li>

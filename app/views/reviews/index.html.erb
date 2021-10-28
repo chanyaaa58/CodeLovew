@@ -12,7 +12,13 @@
             <%= form.select("label_id", Label.pluck(:name, :id), { include_blank: true }) %>
             <%= form.submit 'Search', id: 'non-gem' %>
           <% end %>
-          <%= search_form_for @q, url: search_reviews_path do |form| %>
+          <%#= search_form_for @q, url: search_reviews_path do |form| %>
+            <%#= form.label :title_or_problem_or_detail_or_solution_or_content_cont, 'Keyword Search' %>
+
+            <%#= form.search_field :title_or_problem_or_detail_or_solution_or_content_cont, placeholder: "検索したい言葉を入力してください", class: "search-field" %>
+            <%#= form.submit 'Search', id: 'ransack' %>
+          <%# end %>
+          <%= search_form_for @q, url: reviews_path do |form| %>
             <%= form.label :title_or_problem_or_detail_or_solution_or_content_cont, 'Keyword Search' %>
 
             <%= form.search_field :title_or_problem_or_detail_or_solution_or_content_cont, placeholder: "検索したい言葉を入力してください", class: "search-field" %>
@@ -77,9 +83,8 @@
               </tr>
             </table>
           <% end %>
+          <%= paginate @reviews %>
       </div>
     </div>
   </div>
 </div>
-
-<%= paginate @reviews %>
