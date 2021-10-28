@@ -60,8 +60,20 @@ lavels = [
 ]
 Label.create!(lavels)
 
-comment = Comment.create!(review_id: 19, user_id:1, content: "わかりやすい！")
-comment = Comment.create!(review_id: 19, user_id:2, content: "理解が深まりました！")
-comment = Comment.create!(review_id: 19, user_id:3, content: "「〜」について質問です！")
-comment = Comment.create!(review_id: 19, user_id:4, content: "すみません。よくわかりません…")
-comment = Comment.create!(review_id: 19, user_id:5, content: "ありがとうございます！")
+5.times { |n|
+  Labelling.create!(
+  review_id: Review.first.id + n,
+  label_id: Label.first.id + n )
+}
+
+comment = Comment.create!(review_id: Review.first.id, user_id: user5.id, content: "わかりやすい！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user4.id, content: "理解が深まりました！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user3.id, content: "「〜」について質問です！")
+comment = Comment.create!(review_id: Review.first.id, user_id: user2.id, content: "すみません。よくわかりません…")
+comment = Comment.create!(review_id: Review.first.id, user_id: user1.id, content: "ありがとうございます！")
+
+5.times { |n|
+  Lovew.create!(
+  review_id: Review.first.id + n,
+  user_id: user1.id )
+}

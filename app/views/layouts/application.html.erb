@@ -15,32 +15,32 @@
       <a href="/">CodeLovew</a>
     </div>
 
+    <nav class="menu">
+    <% if user_signed_in? %>
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class:"btn btn-danger text-white btn-lg w-150px" %>
+      <%= link_to "My page", user_path(current_user.id), class:"btn btn-warning text-white btn-lg w-150px" %>
+      <%= link_to "Review!", new_review_path, class:"btn btn-danger text-white rounded-pill btn-lg w-150px" %>
+      <%= link_to "ALL Reviews", reviews_path, class:"btn btn-info text-white rounded-pill btn-lg w-150px" %>
+    <% if current_user.admin? %>
+      <%= link_to "管理画面", rails_admin_path, class:"btn-outline-secondary btn-lg w-150px" %>
+    <% end %>
+    <% else %>
+      <%= link_to "Admin Guest Log In", users_guest_admin_sign_in_path, method: :post, class:"btn btn-outline-secondary bg-light" %>
+      <%= link_to "Guest Log In", users_guest_sign_in_path, method: :post, class:"btn btn-secondary rounded-pill btn-lg" %>
+      <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary text-white btn-lg w-150px" %>
+      <%= link_to "Log In", new_user_session_path, class:"btn btn-success text-white btn-lg w-150px" %>
+    <% end %>
+    </nav>
     <% if notice %>
       <p class="alert alert-notice"><%= notice %></p>
     <% end %>
     <% if alert %>
       <p class="alert alert-error"><%= alert %></p>
     <% end %>
-
-    <nav class="menu">
-    <% if user_signed_in? %>
-      <%= link_to "ALL Reviews", reviews_path %>
-      <%= link_to "Review!", new_review_path %>
-      <%= link_to "My page", user_path(current_user.id) %>
-      <%= link_to "Log Out", destroy_user_session_path, method: :delete %>
-      <% if current_user.admin? %>
-        <%= link_to "管理画面", rails_admin_path %>
-      <% end %>
-    <% else %>
-      <%= link_to "Log In", new_user_session_path %>
-      <%= link_to "Sign Up", new_user_registration_path %>
-      <%= link_to "Guest Log In", users_guest_sign_in_path, method: :post %>
-      <%= link_to "Admin Guest Log In", users_guest_admin_sign_in_path, method: :post %>
-    <% end %>
-    </nav>
   </header>
 
     <%= yield %>
+
     <footer>
       <p>&copy; 2021 - Aya Takahashi</p>
     </footer>

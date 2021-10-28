@@ -1,11 +1,13 @@
 class ReviewsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_review, only: %i[ show edit update destroy ]
+  before_action :check_review_user, only: %i(edit update destroy)
 
   def index
     @q = Review.ransack(params[:q])
     @reviews = @q.result(distinct: true).order(created_at: :desc)
-    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).per(10).order(created_at: :desc) if params[:label_id].present?
+    flash.now[:alert] = "検索結果はありませんでした" if @reviews.count == 0
+    @reviews = @reviews.joins(:labels).where(labels: { id: params[:label_id] }).page(params[:page]).per(10).reorder(created_at: :desc) if params[:label_id].present?
     @reviews = Kaminari.paginate_array(@reviews).page(params[:page]).per(10)
     flash.now[:alert] = "引き続きご利用いただき、ありがとうございます！！" if params[:cancel_quit]
   end
@@ -55,12 +57,12 @@ class ReviewsController < ApplicationController
     end
   end
 
-  def search
-    @search = Review.ransack(params[:q])
-    @results = @search.result.order(created_at: :desc)
-    @results = Kaminari.paginate_array(@results).page(params[:page]).per(10)
-    redirect_to reviews_path, alert: '検索結果は0件です。' if @results == []
-  end
+  # def search
+  #   @search = Review.ransack(params[:q])
+  #   @results = @search.result.order(created_at: :desc)
+  #   @results = Kaminari.paginate_array(@results).page(params[:page]).per(10)
+  #   redirect_to reviews_path, alert: '検索結果は0件です。' if @results == []
+  # end
 
   private
 
@@ -69,6 +71,11 @@ class ReviewsController < ApplicationController
     end
 
     def review_params
-      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })#, { comment_ids: [] })
+      params.require(:review).permit(:title, :problem, :detail, :solution, :content, { label_ids: [] })
     end
+  def check_review_user
+    if @review.user != current_user
+      redirect_to reviews_path, notice: "権限がありません"
+    end
+  end
 end

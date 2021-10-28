@@ -3,98 +3,92 @@ html {
   min-height: 100%;
 }
 header {
-  background-color: #000000;
-  height: 100px;
+  background-color: #000;
+  height: 120px;
   padding: 15px;
   margin: 0;
   position: fixed;
   width: 100%;
   top: 0;
+  z-index: 1;
 }
 .header_logo a {
-  font-size: 20px;
+  font-size: 30px;
   color: #ff00ff;
-  margin: 1%;
+  padding: 0;
+  float: left;
 }
-// header ul {
-//   margin: 0 auto;
-//   list-style: none;
-// }
-// header ul a {
-//   display: block;
-//   padding: 15px;
-//   text-decoration: none;
-//   color: #ff00ff;
-// }
-// header li {
-//   float: left;
-//   width: auto;
-// }
-// header ul:after {
-//   content: "";
-//   display: block;
-//   clear: both;
-// }
 .menu {
-  // position: fixed;
   height: 60px;
   padding: 0;
-  // display: flex;
-  // justify-content: flex-end;
-  // align-items: center;
 }
 .menu a {
-  color: #fff;
+  font-size: 20px;
   padding: 0;
   margin: 1%;
   float: right;
 }
 .alert {
-  color: #fff;
-  float: left;
+  color: #ffff00;
 }
 body {
   width: 100%;
   margin: 0;
-  padding: 100px 0 50px 0;
+  padding: 120px 0 50px 0;
   position: relative;
-  // background-image: url("background.png");
+  background-image: url("background.png");
   min-height: 100vh;
 }
-// li {
-//   list-style: none;
-// }
-// ul {
-//   padding: 0;
-// }
-.title {
+.main-area {
+  background-color: #000;
+  padding: 50px;
+  width: 90%;
+  margin: 5%;
+}
+.container-fluid {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  margin-top: 40px;
+}
+.container-fluid h2 {
   font-size: 30px;
-  font-weight: bold;
-  text-align: left;
   color: #ff00ff;
 }
-// .contents li {
-//   background-color: #f3a7ab;
-//   color: #fff;
-//   padding: 10% 5%;
-//   box-sizing: border-box;
-//   border: solid 1px #fff;
-// }
-// .topic li {
-//   margin: 1%;
-//   border-bottom: dotted 1px #333333;
-// }
-// .container {
-//   margin-top: 20px;
-//   padding-bottom: 100px;
-// }
-
+.container-fluid p {
+  padding: 0;
+}
+.yellow {
+  color: #ffff00;
+}
+.btn {
+  padding: 5px 10px !important;
+  letter-spacing: 1px !important;
+}
+.btn.outline {
+  background: none;
+  padding: 5px 10px !important;
+  color: #696969 !important;
+}
+.btn.outline a {
+  color: #696969 !important;
+}
+.btn.normal {
+  overflow-wrap: normal;
+}
+.w-150px {
+  width: 150px !important;
+}
+.w-100px {
+  width: 100px;
+}
 footer {
   width: 100%;
   height: 50px;
-  background-color: #000;
+  background-color: #fff;
   color: #ff00ff;
   text-align: center;
+  line-height: 50px;
   padding: 0;
   position: absolute;
   bottom: 0;

@@ -1,3 +1,111 @@
-// Place all the styles related to the reviews controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: https://sass-lang.com/
+.review-area {
+  background-color: #000;
+  padding: 5px;
+  margin: 2%;
+  display: flex;
+  min-height: 500px;
+}
+.container-fluid {
+  background-color: #000;
+  color: #fff;
+  width: 100%;
+  margin-top: 20px;
+}
+.container-fluid h1 {
+  font-size: 30px;
+  color: #ff00ff;
+}
+.search-area {
+  position: fixed;
+}
+table {
+  border-collapse: collapse;
+  border: solid 1px #fff;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 5px;
+}
+th,
+td {
+  border: solid 1px #fff;
+  height: 40px;
+}
+th {
+  width: 10%;
+  text-align: center;
+}
+.read-more {
+  text-align: right;
+}
+.read-more a {
+  color: #ff00ff;
+}
+h6 {
+  text-align: right;
+}
+h6,
+a {
+  color: #ff00ff;
+  margin: 1%;
+  font-size: 20px;
+}
+h6,
+span {
+  color: #ff00ff;
+  margin: 1%;
+  font-size: 20px;
+}
+.heart {
+  color: #ff00ff;
+  margin: 1%;
+  font-size: 20px;
+}
+.unheart {
+  color: #ff00ff;
+  margin: 1%;
+  font-size: 20px;
+}
+.h .input-field::placeholder {
+  font-size: 12px;
+}
+.search-field::placeholder {
+  font-size: 12px;
+}
+.search-field {
+  width: 227px;
+  height: 40px;
+}
+input[type="text"] {
+  width: 300px;
+  height: 40px;
+}
+.new-area {
+  background-color: #000;
+  padding: 20px;
+  width: 90%;
+  margin: 1%;
+}
+.field {
+  color: #fff;
+}
+.edit-area {
+  background-color: #000;
+  padding: 20px;
+  width: 90%;
+  margin: 1%;
+}
+.show-area {
+  background-color: #000;
+  padding: 20px;
+  margin: 1%;
+  color: #fff;
+}
+.show-area th {
+  width: 2%;
+}
+.result-area {
+  background-color: #000;
+  padding: 5px;
+  margin: 2%;
+  display: flex;
+}
