@@ -63,12 +63,12 @@ https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=1096734834
 
 ## ER図
-![original_app_erd drawio](https://user-images.githubusercontent.com/86763220/137439883-9ed3d216-1a84-40d3-9bb5-3823168e315b.png)
+![original_app_erd drawio](https://user-images.githubusercontent.com/86763220/139202759-b1dedd2d-27ac-44b7-9e66-334547533dd2.png)
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=72546783
 
 ## 画面遷移図
-![original_app_op drawio](https://user-images.githubusercontent.com/86763220/136342933-e820d563-b282-4eb5-b83d-016066577f88.png)
+![original_app_op drawio](https://user-images.githubusercontent.com/86763220/139203047-057d26da-6626-466f-971b-18eb7d4cd89b.png)
 
 https://docs.google.com/spreadsheets/d/1UBMjLbRrCInjR05K5o4-uD_W2ZK_CsbwC4YOfIU-pOg/edit#gid=694438830
 
